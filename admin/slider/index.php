@@ -4,38 +4,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data Barang</title>
+  <title>Slider</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../assets/plugins/fontawesomefree/css/all.min.css">
 
-  <!--
-Ionicons
--->
+  <!--Ionicons-->
+
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!--
-Tempusdominus
-Bootstrap 4 -->
+
+  <!--Tempusdominus Bootstrap 4 -->
 
   <link rel="stylesheet" href="../../assets/plugins/tempusdominusbootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
   <!--
 iCheck
 -->
+
+
   <link rel="stylesheet" href="../../assets/plugins/icheckbootstrap/icheck-bootstrap.min.css">
+
+
   <!--
 JQVMap
 -->
+
+
   <link rel="stylesheet" href="../../assets/plugins/jqvmap/jqvmap.min.css">
+
+
   <!--
 Theme
 style -->
+
+
   <link rel="stylesheet" href="../../assets/dist/css/adminlte.min.css">
+
+
   <!--
 overlayScrollbars
 -->
+
+
   <link rel="stylesheet" href="../../assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+
   <!-- Daterange picker -->
   <link rel="stylesheet" href="../../assets/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
@@ -83,9 +97,7 @@ overlayScrollbars
 
 
     </nav>
-
-    <!-- load menu sidebar -->
-    <?php include "../sidebar.php"; ?>
+    <?php include "../sidebar.php"  ?>
 
 
     <div class="content-wrapper">
@@ -93,13 +105,12 @@ overlayScrollbars
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Data Barang</h1>
+              <h1 class="m-0">About</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item active">Data
-                  Barang</li>
+                <li class="breadcrumb-item active">Slider</li>
               </ol>
             </div>
           </div>
@@ -110,9 +121,8 @@ overlayScrollbars
       <section class="content">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Tabel Data Barang</h3>
-            <a href="tambah.php" class="btn btn-primary
-float-right">Tambah Data</a>
+            <h3 class="card-title">Tabel Slider</h3>
+            <a href="tambah.php" class="btn btn-primary float-right">Tambah Data</a>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
@@ -120,10 +130,7 @@ float-right">Tambah Data</a>
               <thead>
                 <tr>
                   <th style="width: 10px">No</th>
-                  <th>Nama Barang</th>
-                  <th>Deskripsi</th>
-                  <th>Harga</th>
-                  <th>Kategori</th>
+                  <th class="text-center">Nama Slider</th>
                   <th class="text-center">Gambar</th>
                   <th class="text-center">Aksi</th>
                 </tr>
@@ -132,23 +139,16 @@ float-right">Tambah Data</a>
                 <?php
                 include '../../koneksi.php';
                 $no = 1;
-                //$query = mysqli_query($koneksi, "SELECT * FROM data_barang");
-                $query = mysqli_query($koneksi, "SELECT data_barang.*, kategori.nama_kategori FROM data_barang INNER JOIN kategori ON data_barang.id_kategori = kategori.id ORDER BY id DESC");
-                while ($data =
-                  mysqli_fetch_array($query)
-                ) {
+                $query = mysqli_query($koneksi, "SELECT * FROM tb_slider");
+                while ($data = mysqli_fetch_array($query)) {
                 ?>
                   <tr>
                     <td><?= $no++; ?></td>
-                    <td><?= $data['nama_barang'];
-                        ?></td>
-                    <td><?= $data['deskripsi']; ?></td>
-                    <td><?= $data['harga']; ?></td>
-                    <td><?= $data['nama_kategori']; ?></td>
-                    <td class="text-center"><img width="100" src="gambar/<?= $data['gambar']; ?>" width="100px"></td>
+                    <td><?= $data['nama_slider']; ?></td>
+                    <td class="text-center"><img width="100" src="img/<?= $data['gambar']; ?>" width="100px"></td>
                     <td class="text-center">
-                      <a href="edit.php?id=<?= $data['id']; ?>" class="btn btn-warning">Edit</a>
-                      <a href="proses_hapus.php?id=<?= $data['id']; ?>" class="btn btn-danger">Hapus</a>
+                      <a href='edit.php?id=<?= $data["id"]; ?>' class="btn btn-warning">Edit</a>
+                      <a href='proses_hapus.php?id=<?= $data["id"]; ?>' class="btn btn-danger">Hapus</a>
                     </td>
                   </tr>
                 <?php } ?>
@@ -161,24 +161,11 @@ float-right">Tambah Data</a>
 -->
 
 
-          <div class="card-footer
-clearfix">
-
-
-
-
+          <div class="card-footer clearfix">
           </div>
-
-
         </div>
-
-
       </section>
-
-
-      <!--
-MAIN
-CONTENT -->
+      <!--MAIN CONTENT -->
 
 
 
@@ -254,12 +241,8 @@ conflict in jQuery UI tooltip with Bootstrap tooltip ->
    <script>
 
 
-   $.widget.bridge('uibutton',
-$.ui.button)
-
-
-   </script>
-    <!-- Bootstrap 4 -->
+   $.widget.bridge(' uibutton', $.ui.button) </script>
+                        <-- Bootstrap 4 -->
   <script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- ChartJS -->
   <script src="../../assets/plugins/chart.js/Chart.min.js"></script>

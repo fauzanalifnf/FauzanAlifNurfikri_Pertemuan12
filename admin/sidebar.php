@@ -31,6 +31,30 @@ SIDEBAR / ASIDE -->
             </p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="../about/index.php" class="nav-link">
+            <i class="nav-icon far fa-image"></i>
+            <p>
+              About
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../social/index.php" class="nav-link">
+            <i class="nav-icon far fa-image"></i>
+            <p>
+              Social
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../slider/index.php" class="nav-link">
+            <i class="nav-icon far fa-image"></i>
+            <p>
+              Slider
+            </p>
+          </a>
+        </li>
         <!--
 SIDEBAR
 / ASIDE -->

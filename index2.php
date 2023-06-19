@@ -23,7 +23,7 @@
   <div id="templatemo_wrapper">
     <div id="templatemo_header">
       <div class="templatemo_header_box left">
-        <div id="site_title"><a href="http://www.templatemo.com/preview/templatemo_380_eco_tree" rel="nofollow">Eco Tree</a></div>
+        <div id="site_title"><a href="index.php" rel="nofollow">Ekatalog</a></div>
 
       </div> <!-- END of headar box -->
       <div id="templatemo_slider"><span class="sliderframe"></span>
@@ -59,7 +59,7 @@
           while ($data = mysqli_fetch_array($query)) {
 
           ?>
-            <li><a href="index2.php?id=<?= $data['id']; ?>" class="selected home"><?= $data['nama_kategori'] ?></a></li>
+            <li><a href='index2.php?id=<?= $data["id"]; ?>' class="selected home"><?= $data['nama_kategori'] ?></a></li>
           <?php } ?>
         </ul>
       </div> <!-- END of headar box -->
@@ -69,7 +69,8 @@
     <div id="templatemo_main"><span class="mf mft"></span><span class="mf mfb"></span>
       <?php
       include "koneksi.php";
-      $query = mysqli_query($koneksi, "SELECT * FROM data_barang");
+      $idkategori = $_GET['id'];
+      $query = mysqli_query($koneksi, "SELECT data_barang.*, kategori.nama_kategori FROM data_barang INNER JOIN kategori ON data_barang.id_kategori = kategori.id WHERE kategori.id = $idkategori ORDER BY data_barang.id DESC");
       while ($data = mysqli_fetch_array($query)) {
       ?>
         <div class="col col_3">

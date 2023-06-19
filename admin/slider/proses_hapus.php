@@ -7,12 +7,12 @@ include '../../koneksi.php';
 $id = $_GET['id'];
 
 //hapus file gambar dari folder gambar
-$query = mysqli_query($koneksi, "SELECT * FROM kategori WHERE id = '$id'");
+$query = mysqli_query($koneksi, "SELECT * FROM tb_slider WHERE id = '$id'");
 $data = mysqli_fetch_array($query);
 //
 
 //hapus data dari database
-$hapus = mysqli_query($koneksi, "DELETE FROM kategori WHERE id =
+$hapus = mysqli_query($koneksi, "DELETE FROM tb_slider WHERE id =
 '$id'");
 
 //cek apakah proses hapus data berhasil

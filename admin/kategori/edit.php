@@ -17,7 +17,7 @@ $nama_kategori = $data['nama_kategori'];
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" <title>Edit Data Kategori</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" <title> Edit Data Kategori</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
@@ -225,8 +225,7 @@ far fa-image"></i>
           <!-- form start -->
           <form action="proses_edit.php" method="post" enctype="multipart/form-data">
             <div class="card-body">
-              <input type="hidden" name="id" value="<?=
-                                                    $id ?>">
+              <input type="hidden" name="id" value="<?= $id ?>">
               <div class="form-group">
                 <label>Nama Kategori</label>
                 <input type="text" name="nama_kategori_post" class="form-control" placeholder="Masukan Nama Kategori" value="<?= $nama_kategori ?>" required>

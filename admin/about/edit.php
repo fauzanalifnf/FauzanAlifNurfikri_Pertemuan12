@@ -1,37 +1,71 @@
+<?php
+//load koneksi database
+include '../../koneksi.php';
+
+//ambil id dari url
+$id = $_GET['id'];
+
+//ambil data dari database
+$query = mysqli_query($koneksi, "SELECT * FROM tb_about WHERE id = '$id'");
+$data = mysqli_fetch_array($query);
+$judul_post = $data['judul'];
+$isi_post = $data['isi'];
+//
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data Barang</title>
+  <title> Edit Data Kategori</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../assets/plugins/fontawesomefree/css/all.min.css">
 
+
   <!--
 Ionicons
 -->
+
+
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+
   <!--
 Tempusdominus
 Bootstrap 4 -->
 
+
   <link rel="stylesheet" href="../../assets/plugins/tempusdominusbootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
+
   <!--
 iCheck
 -->
+
+
   <link rel="stylesheet" href="../../assets/plugins/icheckbootstrap/icheck-bootstrap.min.css">
+
+
   <!--
 JQVMap
 -->
+
+
   <link rel="stylesheet" href="../../assets/plugins/jqvmap/jqvmap.min.css">
+
+
   <!--
 Theme
 style -->
+
+
   <link rel="stylesheet" href="../../assets/dist/css/adminlte.min.css">
+
+
   <!--
 overlayScrollbars
 -->
@@ -84,22 +118,21 @@ overlayScrollbars
 
     </nav>
 
-    <!-- load menu sidebar -->
-    <?php include "../sidebar.php"; ?>
-
+    <?php include "../sidebar.php"
+    ?>
 
     <div class="content-wrapper">
       <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Data Barang</h1>
+              <h1 class="m-0">Edit Data About</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item active">Data
-                  Barang</li>
+                <li class="breadcrumb-item active">Edit
+                  Data About</li>
               </ol>
             </div>
           </div>
@@ -108,66 +141,50 @@ overlayScrollbars
 
       <!-- MAIN CONTENT -->
       <section class="content">
-        <div class="card">
+        <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Tabel Data Barang</h3>
-            <a href="tambah.php" class="btn btn-primary
-float-right">Tambah Data</a>
+            <h3 class="card-title">Form Data About</h3>
           </div>
           <!-- /.card-header -->
-          <div class="card-body">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th style="width: 10px">No</th>
-                  <th>Nama Barang</th>
-                  <th>Deskripsi</th>
-                  <th>Harga</th>
-                  <th>Kategori</th>
-                  <th class="text-center">Gambar</th>
-                  <th class="text-center">Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                include '../../koneksi.php';
-                $no = 1;
-                //$query = mysqli_query($koneksi, "SELECT * FROM data_barang");
-                $query = mysqli_query($koneksi, "SELECT data_barang.*, kategori.nama_kategori FROM data_barang INNER JOIN kategori ON data_barang.id_kategori = kategori.id ORDER BY id DESC");
-                while ($data =
-                  mysqli_fetch_array($query)
-                ) {
-                ?>
-                  <tr>
-                    <td><?= $no++; ?></td>
-                    <td><?= $data['nama_barang'];
-                        ?></td>
-                    <td><?= $data['deskripsi']; ?></td>
-                    <td><?= $data['harga']; ?></td>
-                    <td><?= $data['nama_kategori']; ?></td>
-                    <td class="text-center"><img width="100" src="gambar/<?= $data['gambar']; ?>" width="100px"></td>
-                    <td class="text-center">
-                      <a href="edit.php?id=<?= $data['id']; ?>" class="btn btn-warning">Edit</a>
-                      <a href="proses_hapus.php?id=<?= $data['id']; ?>" class="btn btn-danger">Hapus</a>
-                    </td>
-                  </tr>
-                <?php } ?>
-              </tbody>
-            </table>
-          </div>
+          <!-- form start -->
+          <form action="proses_edit.php" method="post" enctype="multipart/form-data">
+            <div class="card-body">
+              <input type="hidden" name="id" value="<?= $id ?>">
+              <div class="form-group">
+                <label>Nama About</label>
+                <input type="text" name="nama_About_post" class="form-control" placeholder="Masukan Nama About" value="<?= $judul_post ?>" required>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label>Isi About</label>
+                <textarea name="isi_About_post" class="form-control" rows="3" placeholder="Masukan isi About" required><?= $isi_post ?></textarea>
+              </div>
+            </div>
 
-          <!--
+
+
+
+            <!--
 /.card-body
 -->
 
 
-          <div class="card-footer
-clearfix">
 
 
+            <div class="card-footer">
 
 
-          </div>
+              <button type="submit" class="btn btnprimary">Simpan</button>
+
+
+              <a href="index.php" type="button" class="btn btn-default">kembali</a>
+
+
+            </div>
+
+
+          </form>
 
 
         </div>
@@ -197,13 +214,13 @@ CONTENT -->
 
 
       All
-      rights reserved.
+      rights
+      reserved.
 
 
       <div class="float-right
 d-none
 d-sm-inline-block">
-
 
 
         <b>Version</b>
@@ -291,6 +308,7 @@ Bootstrap 4 -->
   <script src="../../assets/plugins/tempusdominus-bootstrap4/js/tempusdominus-bootstrap-4.min.js"></script>
 
 
+
   <!--
 Summernote
 -->
@@ -310,7 +328,8 @@ min.js"></script>
 
   <!--
 AdminLTE
-App -->
+App
+-->
 
 
   <script src="../../assets/dist/js/adminlte.js"></script>

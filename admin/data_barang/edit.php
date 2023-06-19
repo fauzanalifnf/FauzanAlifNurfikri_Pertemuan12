@@ -22,7 +22,8 @@ $harga = $data['harga'];
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" <title>Edit Data Barang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit Data Barang</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
@@ -233,17 +234,14 @@ far fa-image"></i>
           <!-- form start -->
           <form action="proses_edit.php" method="post" enctype="multipart/form-data">
             <div class="card-body">
-              <input type="hidden" name="id" value="<?=
-                                                    $id ?>">
+              <input type="hidden" name="id" value="<?= $id ?>">
               <div class="form-group">
                 <label>Nama Barang</label>
                 <input type="text" name="nama_barang_post" class="form-control" placeholder="Masukan Nama Barang" value="<?= $nama_barang ?>" required>
               </div>
               <div class="form-group">
                 <label>Deskripsi</label>
-                <textarea name="deskripsi_post" class="form-control" rows="3" required><?= $deskripsi
-                                                                                        ?></textarea>
-
+                <textarea name="deskripsi_post" class="form-control" rows="3" required><?= $deskripsi ?></textarea>
               </div>
               <div class="form-group">
                 <label>Harga</label>

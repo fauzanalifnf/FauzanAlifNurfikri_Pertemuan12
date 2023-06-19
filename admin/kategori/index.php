@@ -139,7 +139,7 @@ ml-auto">
               <thead>
                 <tr>
                   <th style="width: 10px">No</th>
-                  <th>Nama Kategori</th>
+                  <th class="text-center">Nama Kategori</th>
                   <th class="text-center">Aksi</th>
                 </tr>
               </thead>
